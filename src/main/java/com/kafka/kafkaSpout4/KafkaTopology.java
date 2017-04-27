@@ -37,7 +37,7 @@ public class KafkaTopology {
 			      LocalCluster cluster = new LocalCluster();
 			      cluster.submitTopology("KafkaTopology", config, builder.createTopology());
 	
-			      Thread.sleep(10000);
+			      Thread.sleep(80 * 1000);
 			      
 			      cluster.shutdown();
 		   		} 
