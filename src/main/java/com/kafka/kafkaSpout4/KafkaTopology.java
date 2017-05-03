@@ -31,7 +31,7 @@ public class KafkaTopology {
 	
 			      TopologyBuilder builder = new TopologyBuilder();
 			      builder.setSpout("kafka-spout", new KafkaSpout(kafkaSpoutConfig));
-			      //builder.setBolt("word-spitter", new SplitBolt()).shuffleGrouping("kafka-spout");
+			      //builder.setBolt("word-spitter", new SplitBolt(),3).shuffleGrouping("kafka-spout");
 			      builder.setBolt("db-bolt", new KafkaToDbBolt(args[1])).shuffleGrouping("kafka-spout");
 			         
 			      LocalCluster cluster = new LocalCluster();
